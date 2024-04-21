@@ -1,0 +1,180 @@
+ReactJs란?
+	- 복잡한 사용자 인터페이스(UI)를 쉽게 구축하기 위해 페이스북에서 제작된 자바스크립트 기반 라이브러리
+	- JS와 XML이 합쳐진 JSX 문법을 사용하는 라이브러리
+	- 싱글 페이지 애플리케이션이나 모바일 애플리케이션 개발에 주로 사용된다.
+	- 특정 데이터에 변화가 생길 때 매번 변화를 주기 위한 코드를 작성하는 것이 아닌, 
+          기존 코드를 없애고 다시 새롭게 랜더링한다.
+
+랜더링(Rendering)
+	- 화면에 보여주는 것
+	- 코드가 번역되어 실행 된 뒤 화면을 통해 사용자에게 보여진다.
+
+초기 랜더링(Mount)
+	- 가장 처음으로 랜더링 되는 것
+	- render() 함수를 사용하여 veiw를 정의하고 초기 랜더링을 진행하게 된다.
+
+리랜더링(Re-rendering)
+	- 뷰를 업데이트 해야 할 때 다시 지웠다가 그려야 하며, 이를 리랜더링이라고 한다.
+	- 전체를 모두 지우고 다시 그리는 것은 비효율적이기 때문에 이전 DOM트리와 새로운 DOM 트리를 비교 한 뒤
+	변경된 요소 부분만 리랜더링 된다.
+
+버츄얼 돔(Virtual DOM)
+	화면보다 가상돔에 먼저 랜더링하여 컴포넌트(최소 단위)에 변화가 감지되면, Virtual DOM으로 랜더링 되며
+	이전 Virtual DOM과 현재 Vritual DOM을 비교하여 이로 인해 필요한 부분을 리랜더링 시킨다.
+
+* DOM은 하나의 tag다.
+  tag 하나를 DOM으로 본다면,
+	body
+		div
+		div 
+	=> 최상위 태그가 body태그니까 제외하고, DOM tree가 2개다.
+	=> 성능때문에 dom tree는 1개 만든다.
+
+
+------개인 프젝 고르는 팁-------
+작은 어플리케이션 부터 여러개 만들어보기
+https://notefolio.net/ 
+https://www.miricanvas.com/ko
+똑같이 따라하지말고, 참고해서 만들어보기
+식품, 지하철 서비스 등등
+
+
+----- react 설치----------
+<yarn ver> - Yarn은 JavaScript 패키지 매니저
+vscode에서 ctrl + ` 으로 터미널 열기 (powershell로 열린건지 확인)
+1> get-ExecutionPolicy 
+// Restricted 인 경우
+2> set-ExecutionPolicy RemoteSigned 
+// 이거 안되면
+// 윈도우 파워쉘 관리자권한으로 켜서  
+> set-ExecutionPolicy RemoteSigned 입력 후 Y 입력후 끄기
+// 그대로 RemoteSigned 상태가 안되면
+// vscode 터미널에서 
+> Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
+// RemoteSigned 뜸.
+
+3> npm install -g yarn  //yarn 설치
+// npm 버전이 낮아서 안되면,
+> npm update
+
+4> yarn -v //yarn 버전 확인
+
+5> yarn global add create-react-app  //react 설치
+
+6> yarn create react-app [프로젝트 이름]  //프로젝트 이름이 적힌 파일 생성
+
+*> yarn add react-async // Yarn 패키지 관리자를 사용하여 프로젝트에 react-async 패키지를 추가
+
+*> yarn cache clean --force // Yarn의 캐시를 강제로 비우기
+// Yarn은 패키지를 설치할 때 이전에 다운로드한 패키지를 캐시에 저장하여 재사용하는데, 때로는 이러한 캐시가 문제를 일으킬 수 있습니다. 이 명령어는 그러한 문제를 해결하기 위해 캐시를 완전히 비워줍니다.
+
+*> yarn install --force //프로젝트의 종속성을 다시 설치
+// --force 플래그가 함께 사용되면 이미 설치된 종속성(react)에 관계없이 강제로 다시 설치하게 됩니다. 종속성 설치를 재시도하면서 잠재적으로 발생하는 문제를 해결하는 데 유용합니다.
+// yarn install --force 명령어를 사용할 때는 종속성 목록을 지정하지 않고 실행하므로 프로젝트의 모든 종속성을 재설치합니다. 따라서 이미 설치된 패키지들에 관계 없이 모든 종속성이 다시 설치됩니다.
+
+<yarn이 사용이 안될 경우(mac)  npm ver >
+1> npm install -g create-react-app
+2> create-react-app [프로젝트 이름]
+
+**종속성(dependency)이란??
+"종속성(dependency)"은 프로젝트가 다른 패키지나 라이브러리에 의존하여 동작하는 것을 의미합니다. 예를 들어, React 애플리케이션을 개발할 때는 React 자체에 의존하는 것뿐만 아니라, 다양한 다른 패키지에 의존할 수 있습니다. 예를 들어, 특정 컴포넌트를 비동기적으로 렌더링하기 위해 react-async 패키지에 의존할 수 있습니다.
+
+따라서 프로젝트에서 사용하는 다른 패키지나 라이브러리를 "종속성(dependency)"이라고 부릅니다. 이러한 종속성은 프로젝트를 빌드하고 실행하는 데 필요합니다. 종속성 관리자(예: Yarn 또는 npm)를 사용하여 이러한 종속성을 관리하고 설치할 수 있습니다.
+
+
+
+------- react 폴더 구조  살펴보기 -------------
+프로젝트 폴더 내부
+	node_modules : 이 폴더에는 프로젝트에 설치된 패키지 및 라이브러리의 모든 파일이 들어 있습니다.
+				직접 수정하거나 조작할 필요 없는 자동 생성된 파일 및 폴더입니다. 개발자는 주로 						node_modules 폴더 내의 패키지를 프로젝트에서 사용하기 위해 가져와 사용합니다.
+				(깃 사용시 gitignore 파일로 안들어가므로 추후 gitignore에 포함시키는 법 배울 예정)
+
+	public : public 폴더는 React 프로젝트에서 정적 파일을 저장하는 곳 ( HTML 파일, 이미지 파일, favicon 등)
+		  public 폴더를 사용하여 외부 리소스에 대한 접근을 제공한다.
+
+	src : src 폴더에는 애플리케이션의 로직 및 구성 요소를 포함한다.
+              (JS, Typescript, css, sass, img, resouce파일, 컴포넌트, 라우팅 로직 파일, 유틸리티 함수 파일)
+
+
+리액트는 SPA방식 (Single Page Application)
+	= HTML 페이지가 1개 
+	src폴더의 index.js가 가리키는 root가 public폴더의 index.html에 있어 연결된다.
+
+-------localhost:3000 서버 접근하기-----------
+cd study
+yarn start
+
+
+------스니펫 확장프로그램 설치-------------
+reactjs code snippets - charalampos 제작자꺼 설치하기!
+컴포넌트 - rsc 단축어로 자동완성시켜줌
+
+
+----------JSX문법-------------------------------
+- 컴포넌트는 프로젝트의 가장 작은 단위 -> 앞글자가 꼭 대문자 (CTRL + 컴포넌트)
+- 리액트는 모듈화 되어 있음 -> 개발자가 생성한 컴포넌트를 함수형 컴포넌트로 만들어 화면에 뿌리는 모듈을 만들어냄.
+- <></> //돔트리 1개
+- import React from 'react' //모듈을 만들고
+- export default Jsx01; //모듈을 내보낸다.
+- App.js에 적힌 모듈이 index.html의 root로 랜더링해 들어가므로, 모듈을 App.js에 <Jsx01 /> 적어준다.
+- import Jsx01 from "./Jsx01"; 자동 import 된다. (ctrl+space)
+- 리액트는 함수다. 
+- 컴포넌트 기본 형태 
+	import React from 'react'
+
+const Jsx01 = () => {
+    return (
+        <></>
+    )
+}
+
+export default Jsx01;
+
+- 컴포넌트 내에서 연산이나 변수선언은 {} 중괄호 내부에서 한다.
+- 리액트는 성능문제 때문에 App.js내에 돔트리를 1개 이상 발생시키면 오류를 나타낸다.
+- JS에서 OR연산자는 앞의 값이 falsy값이면 뒤의값을 변수에 할당한다.
+- 리액트에는 
+	- 클래스 컴포넌트 : render() 함수는 실제로 화면에 무엇을 표시할지를 결정하는 메서드
+		import React, { Component } from 'react';
+
+		class MyClassComponent extends Component {
+  			render() {
+   			 return (
+      				<div>
+        				<h1>Hello, I'm a class component!</h1>
+      				</div>
+    				);
+ 				}
+			}
+		export default MyClassComponent;
+
+	- 함수형 컴포넌트 : return 문 안에 있는 JSX가 실제로 컴포넌트의 UI를 결정하고, 
+				이것이 함수형 컴포넌트의 render() 함수에 해당한다.
+
+		import React from "react";
+
+			const Jsx02 = () => {
+
+    			const name = '김가은';
+
+   			 return (
+       			 <>제 이름은 {name}입니다.</>
+       			 // 컴포넌트 내에서 연산이나 변수선언은 {} 중괄호 내부에서 한다.
+    			)
+			}
+
+			export default Jsx02;
+
+- render함수의 역할인 return문 안에서는 if문을 사용할 수 없다.(함수 내부에서는 if문 사용 가능)
+- 리액트는 삼항연산자를 지원한다. (삼항연산자-조건식이 1개일때 사용)
+	=> JSX는 if문을 사용할 수 없기 때문에 삼항 연산자를 지원한다.
+	=> 조건식 ? 참일 때 랜더링할 JSX : 거짓일 때 랜더링할 JSX
+	=> 조건식 && 참일 때 랜더링할 JSX, 거짓이면 아무것도 출력되지 않음
+		=> && 연산자 앞의 조건식이 false이면 뒤를 실행하지 않으며, false 라는 값은 랜더링 되지 않음
+
+- 리액트는 상태의 변화를 감지하면, 상태에 맞는 페이지를 연산시켜 보여줄 수 있다.(자유로움)
+
+
+
+
+

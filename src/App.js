@@ -1,11 +1,13 @@
 import './App.css';
-import FoodContainer from './ref/expert/FoodContainer';
+import SideEffectMount from './function/SideEffectMount';
+// import FoodContainer from './ref/expert/FoodContainer';
 
 
 
 function App() {
   return (
-    <FoodContainer />
+    // <FoodContainer />
+    <SideEffectMount />
   );
 }
 
