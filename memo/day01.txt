@@ -56,13 +56,16 @@ vscode에서 ctrl + ` 으로 터미널 열기 (powershell로 열린건지 확인
 3> npm install -g yarn  //yarn 설치
 // npm 버전이 낮아서 안되면,
 > npm update
+//npm 없으면 node.js가 설치 안된 것 => node.js 다운로드> path경로상위로 (시스템환경변수편집)>node -v확인
 
 4> yarn -v //yarn 버전 확인
 
 5> yarn global add create-react-app  //react 설치
+	=> 2024년 부터 npm create vite@latest my-react-app -- --template react 로 사용 (vite 방식)
 
 6> yarn create react-app [프로젝트 이름]  //프로젝트 이름이 적힌 파일 생성
-
+	=> yarn create vite 프로젝트이름 —template react (vite방식)
+	=>  React >  JavaScript
 *> yarn add react-async // Yarn 패키지 관리자를 사용하여 프로젝트에 react-async 패키지를 추가
 
 *> yarn cache clean --force // Yarn의 캐시를 강제로 비우기

@@ -1,13 +1,15 @@
 import './App.css';
-import SideEffectMount from './function/SideEffectMount';
-// import FoodContainer from './ref/expert/FoodContainer';
+import StyledComponent01 from './style/basic/StyledComponent01';
+import GlobalStyle from './style/global';
 
 
 
 function App() {
   return (
-    // <FoodContainer />
-    <SideEffectMount />
+      <div class="">
+        <StyledComponent01 />
+        <GlobalStyle />
+      </div>
   );
 }
 

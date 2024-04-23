@@ -1,0 +1,48 @@
+1. useEffect
+   - Side-Effect를 따로 관리하여 컴포넌트가 최대한 순수 함수를 유지할 수 있도록 도와주는 함수
+   - useEffect()는 랜더링이 모두 끝난 다음에 실행된다.
+
+   가용 범위는?
+   - 랜더링 될 때 마다 실행
+   > useEffect(()=>{})
+
+   - 최초 랜더링(마운트)될 때 실행
+   > useEffect(()=>{}, [])
+
+   - 특정 컴포넌트가 변경될 때 실행
+   > useEffect(()=>{}, [state])
+
+
+2. useMemo
+    - 리액트에서 컴포넌트의 성능을 최적화하는데 사용하는 hook 함수다.
+    - side effect가 발생하는 작은 변수들을 담아서 사용한다.
+    - memoization된 값을 반환하는 useMemo는 특정 결과값을 재사용 할 때 사용한다.
+
+3. useCallback
+    - memoization된 콜백함수, 즉 이미 생성된 함수를 반환하는 리액트의 hook함수다.
+    - 실행 할 문장 또는 변화를 주는 기능을 제어하기 위해 사용한다.
+    - 의존성 배열 값의 변화가 있을 때 콜백함수를 새로 생성하고, 그렇지 않을 경우 콜백함수를 생성하지 않는다.
+    - side-Effect가 발생하는 setInterval과 같은 함수들을 감싼다.
+
+---------------------------------------------------------------------------------------------------------------
+
+custom hook 패턴 구조 // 참조
+[components]
+[utils]
+   - arrayheler.js
+   - parseheler.js
+[consts]
+   - key.js (상수, 문자열)
+[styles]
+   - theme.js
+   - globalStyle.js
+   - common.js
+   ...
+[pages]
+   [Home]
+      [Hooks]
+      [Components]
+      -home.js
+[routes]
+[hooks]
+... etc
