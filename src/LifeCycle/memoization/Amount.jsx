@@ -10,6 +10,8 @@ const Amount = ({
         onClickToAddCoupon,
         onClickToSubtractCoupon
     }) => {
+
+    // 자식 컴포넌트 랜더링 확인
     console.log('자식(Amount) 랜더링👶')
     const {amount, coupon} = props;        
 
