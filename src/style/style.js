@@ -30,11 +30,12 @@ S.Styled = styled.div`
 S.Button = styled.button`
     background-color: orchid;
     border: none;
-    ${flexCenterColumn}
+    ${flexCenterColumn};
+    font-size: ${({theme})=>theme.FONT_SIZE["h1"]};
 `
 
 S.input = styled.input`
     background-color: ${(props)=>props.color};
-    ${flexCenterColumn}
+    ${flexCenterColumn};
 `
 export default S;
