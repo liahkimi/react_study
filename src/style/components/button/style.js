@@ -1,8 +1,9 @@
+// BasicButton에 관련된 스타일 파일
 import styled, { css } from "styled-components"
 
 const variantCSS = {
     primary : css`
-        background-color: ${({theme})=>theme.PALLETE.background["gray"]};
+        background-color: ${({theme})=>theme.PALETTE.primary["main"]};
     `
 }
 
@@ -23,7 +24,7 @@ const shapeCSS = {
     `
 }
 
-
+// 사이즈에 대한 css 선언
 const sizeCSS = {
 
     small: css`
@@ -48,12 +49,12 @@ const sizeCSS = {
         padding: 16px 0;
 `,
 }
-
+// styled이 적용된 버튼
 const Button = styled.button`
 
-    ${({variant}) => variantCSS[variant]}
+    ${({variant}) => variantCSS[variant]} //입력한 인자들이 객체의 key값으로 들어옴
     ${({shape}) => shapeCSS[shape]}
-    ${({size}) => sizeCSS[size]}
+    ${({size}) => sizeCSS[size]} //${({smal}) => sizeCSS[smal]}
 
     cursor : pointer;
 `

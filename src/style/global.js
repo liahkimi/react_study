@@ -6,10 +6,9 @@ import reset from 'styled-reset' //import r from 'styled-reset'먼저 입력하�
 // styled-reset에는 reset변수 하나임
 
 // GlobalStyle 컴포넌트
-// 무조건 들어가야 하는 스타일 => reset 할 때 많이 사용 (불필요한 것: list의 .)
+// 무조건 들어가야 하는 스타일 => reset 할 때 많이 사용 (불필요한 것 제거용: ex. list의 .)
 const GlobalStyle = createGlobalStyle`
     ${reset}
-    // ❓적용된건지 모르겠어요 ㅠ
     * {
         box-sizing: border-box;
         text-shadow: 0px 0px 0px rgba(0,0,0,0.1);

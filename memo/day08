@@ -1,0 +1,31 @@
+Redux
+- 상태 관리 라이브러리이며, 리액트 뿐만 아니라 모든 JS 코드에서 작동된다.
+- Flux 패턴을 기반으로 생성되었기 때문에, 단방향으로 동작하여 흐름을 파악하기 쉽고 예측하기 쉽다.
+
+1. 컴포넌트(Component)
+- Action이 발생한다.
+- 나중에 변경된 state를 반영하기 위하여 Store가 subscribe(구독)을 해놓는다.
+
+2. 액션(Action)
+- 변화가 필요할 때 발생시키는 신호
+- Dispatch() 감싸서 전달하면 Reducer가 받아서 해당 분기를 실행한다.
+- Action에는 Type(구분점)을 필수로 담고, 데이터(파라미터)를 같이 담아서 들고간다. Payload라고 한다.
+- 이후 reducer에 전달되기 전에 Store에서 state를 가져와 Action과 함께 reducer에 전달된다.
+
+3. 리듀서(Reducer)
+- 전달 받은 Action에서 Type을 가져온 뒤 구분하여 state를 변경하는 등 알맞은 로직(함수)이 실행되는 순수함수이다.
+
+4. 스토어(Store)
+- state를 저장하는 저장소이며, subscribe 해놓은 컴포넌트로 가서 변경된 state의 값을 전달해준다.
+- 프로젝트에 오직 1개의 스토어만 존재한다. (context는 여러개 가능)
+
+Redux의 원칙
+1. App에는 오직 1개의 Store만 존재해야한다.
+    - 여러개를 조합해야 하는 경우, combineRducers()를 사용하여 Store에 하나로 묶어준다.
+2. State의 불변성 원칙을 지켜야 한다.
+    - 기존의 state는 수정하지 않고, 새로운 객체를 넣어주어야 변경이 감지되기 때문이다.
+3. Reducer는 반드시 순수함수로 만들어야 한다.
+    - state는 변경하지 말고, action을 통해서 변경한 새로운 state 객체를 만들어서 리턴해야 한다.
+    - date(), random(), fetch() 실행할 때마다 다른 결과값이 나타나는 작업은 reducer 밖에서 처리해 주어야 한다.
+
+

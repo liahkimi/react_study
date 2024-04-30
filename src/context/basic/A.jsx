@@ -4,7 +4,7 @@ import B from './B';
 const A = () => {
     return (
         <div>
-            <B/>
+            <B />
         </div>
     );
 };

@@ -70,7 +70,19 @@ const ProductContainer = () => {
     // useMemo 값 분리해서 side-effect 없애기
     // 최초 마운트시 콘솔창 : 부모랜더링->amount연산->coupon연산->자식랜더링
     // coupon add button 눌러서 리랜더링시 콘솔창: 부모랜더링->coupon연산->자식랜더링 
-    // ❓=> (🤔자식랜더링은 어쨋든 한번 되는거면 side-effect아닌가요??)
+    // ❓🤔자식랜더링은 어쨋든 한번 되는거면 side-effect아닌가요??
+    //  => 자식랜더링도 side-effect가 맞긴하지만, 그건 react의 구동 원리.
+
+    // 감싸고 있는 부모가 리랜더링되면 자식이 리랜더링되는 것은
+    //<div>
+    // <p>값1</p>
+    // <span>값2<span>
+    //</div> 
+    // div가 사라지면 p가 없는것처럼 리랜더링 되는과정은 당연히 되는 수순.
+    // 하지만 p라는 태그에서의 연산이 span태그에 영향을 끼쳤다면 그것이 외부의 영향을 받은 것이므로, 그것을 사이드이팩트라고 한다.
+
+    // => 변수가 리랜더링 될 때마다 다른 공간에 값이 재할당 되어 낭비되는 것을 static으로 캐시를 올려두어 재사용하는 것이 useMemo!
+
     const amountMemo = useMemo(()=>{
         console.log('amount 연산')
         return amount

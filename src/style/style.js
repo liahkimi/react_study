@@ -1,11 +1,12 @@
-// styled 컴포넌트 언어 사용 이유 : 
-// - 실제적으론 컴포넌트 아님. js코드 갖다 쓰는 것 (파일명 소문자로 시작 이유)
-// - javascript 언어 이므로, 동적으로 style을 줄 수 있고, 
-// - 반복되는 코드들을 외부에 선언해 놓고 모듈로 가져 올 수 있는 장점이 있어서.
+// styled : 
+// - styled는 'styled-componenets'라이브러리의 함수
+// - css-in-js구문으로 컴포넌트를 스타일링하는데 쓰임.(js파일이므로 소문자로 시작)
+// - 장점 : js여서 동적으로 style을 줄 수 있고, 반복되는 코드들을 외부에 선언해 놓고 모듈로 가져 올 수 있음.
+// styled.div = styled함수를 사용하여 스타일이 적용된 div컴포넌트가 생성된다.
 
 import styled from "styled-components";
 import { flexCenterColumn } from "./common";
-const S = {}
+const S = {} //❓S객체의 존재를 잘 이해 못하겠음.
 
 S.Styled = styled.div`
     width: 300px;
@@ -33,7 +34,6 @@ S.Button = styled.button`
     ${flexCenterColumn};
     font-size: ${({theme})=>theme.FONT_SIZE["h1"]};
 `
-
 S.input = styled.input`
     background-color: ${(props)=>props.color};
     ${flexCenterColumn};

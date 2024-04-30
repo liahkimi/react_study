@@ -1,7 +1,11 @@
 // 화이트 모드, 다크 모드
 const theme = {};
 
-theme.PALLETE = {
+// 디자인 가이드 토대로 
+// 이름들은 상수로 선언
+
+// 색상
+theme.PALETTE = {
     primary : {
         main : "#ffd159",
         sub: "#fff4d8"
@@ -9,6 +13,7 @@ theme.PALLETE = {
     secondary : "#f1ebf5",
     white: "#fff",
     gray: {
+        // 명암 단위 구별
         100 : "#f1ebf5",
         200 : "#aea8b2",
         300 : "#605866",
@@ -20,6 +25,7 @@ theme.PALLETE = {
     }
 }
 
+// 폰트 크기
 theme.FONT_SIZE = {
     h1: "55px",
     h2: "40px",
@@ -30,13 +36,15 @@ theme.FONT_SIZE = {
     h7: "12px",
 }
 
+// 폰트 굵기
 theme.FONT_WEIGHT = {
     thin: "100",
     regular: "400",
-    blod: "800",
+    bold: "800",
     
 }
 
+// 폰트 높이
 theme.FONT_LINE = {
     h1: "75px",
     h2: "55px",

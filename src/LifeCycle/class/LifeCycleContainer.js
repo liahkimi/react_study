@@ -13,7 +13,6 @@ const getRandomColor = () => { //16777215 : 16진수로 색상을 표현할수 �
 // class 내부의 메서드들 (state,)
 class LifeCycleContainer extends Component {
 
-    // 부모의 초기 컬러값 🤔근데 state변수는 let이나 const 안써줘도 되나용?
     state = {
         color: "#000000"
     }

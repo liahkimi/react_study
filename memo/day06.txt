@@ -30,7 +30,7 @@
     - ⭐사용 목적 공식 : 부모 -> 자식 프롭스 함수를 보낼 때 useCallback을 감싸서 보내자.(목적에 맞게 useCallback쓰기)
 
 ---------------------------------------------------------------------------------------------------------------
-CSS FONT-AWESOME 설치방법 : 
+CSS styled와 FONT-AWESOME 설치방법 : 
 
 npm i styled-components
 npm i styled-reset

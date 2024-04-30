@@ -1,0 +1,64 @@
+[JSX에서 쓰이는 JS문법] 
+- 새로운 값을 반환해서 상태관리 할 수 있는 문법이여야 함
+1. for 문
+2. if 문
+3. map 메서드 (html을 반복문으로 줄이고 싶을때.새로운 주소값을 갖는 배열을 반환해줘서 바뀐 상태를 확인할 수 있음. forEach는 기존값 바꾸기만 해서 사용x)
+4. concat 메서드 (array에 새로운 값 추가시킬 때. push는 새로운배열 리턴 안해서 사용x)
+5. filter 메서드 (배열의 값들을 원하는 형태로 바꾸고 싶을 때. message.filter((message)=>message !== e.target.value) )
+6. let~of (배열에서 값만 추출할 때. let input of inputsRef.current )
+7. splice 메서드 (배열의 값 수정해주기)
+    splice(index, 몇개 수정할지 갯수, 바꿔지게 될 값 )
+
+[useState와 useRef 적재적소 사용하는 법]
+1. useState는 버튼을 클릭하면 상태가 변경되고, 이에 따라 UI가 다시 렌더링되는 경우처럼
+   바뀌는 UI의 상태를 관리해줄때 사용함.
+   변수처럼 사용.
+2. useRef는 DOM 요소에 대한 참조를 생성하는 데 사용됩니다.
+   nputRef.current[0].value처럼 참조의 목적이 있을 때만 사용.
+   querySelector처럼 사용.
+
+[화살표 함수에서 중괄호({})의 유무의 차이]
+return의 의미 :  1.함수의 기능 종료  2.사용한곳으로 값 반환
+화살표함수는 화살표 우측에 중괄호가 나올 경우 일반 함수처럼 중괄호 내부의 코드를 순차적으로 실행합니다.
+그러나 중괄호가 아닌 소괄호 및 표현식이 나올 경우 해당 표현식을 계산하여 결과를 바로 리턴합니다
+return todos.filter((todo) => todo.content.includes(search)); -> 검색기능 구현(inlcudes 메서드의 결과값이 리턴)
+return todos.filter((todo) => {return todo.content.includes(search)}); -> 검색기능 구현 (inlcudes 메서드의 결과값 리턴)
+return todos.filter((todo) => {todo.content.includes(search)}); -> 검색기능 구현 x (includes 메서드를 호출해 실행하기만 하고 아무것도 리턴하지 않음)
+
+* () => expression  는  () => { return expression; }의 축약형이다.
+
+[return 제대로 쓰기]
+1. 로직을 중괄호로 감싸주면 "return"을 써준다.
+const add = (x, y) => { return x + y;}
+
+2. 화살표 함수 내부에 return문 밖에 없는 경우에는 return문을 줄일 수 있다.
+const add = (x, y) => x + y
+
+3. 2번과 같지만 보기좋게 로직을 소괄호로 감싸줄 수 있다.
+const add = (x, y) => (x + y)
+
+4. 매개변수가 한 개라면 매개변수를 소괄호로 묶지 않을 수 있다.
+const add = x => !x 
+
+5. 리액트에서 return키워드 쓸 때 주의 : 단락을 구분해야할 때, ;세미콜론 생기지 않게 소괄호로 묶어주기!
+(x,y) => {
+    return (
+        <li>
+        {x+y}
+        </li>
+        )
+}
+
+
+
+[filter(Boolean) 을 이용한 falsy한 값 필터]
+
+filter메서드 콜백함수 안에 Boolean을 넣는다면 truthy한 값 만을 반환합니다.
+
+truthy : 문자, 객체, 숫자, true, 배열
+falsy : null, 0, false, undefined
+const array = [0, 1, 5, '문자', null, false, true, {}, undefined, -10, [] ]
+
+const trusyFilter = array.filter(Boolean)
+// [ 1, 5, '문자', true, {}, -10 ,[]]
+truthy한 값만을 반환 할 수 있습니다
