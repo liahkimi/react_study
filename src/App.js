@@ -9,6 +9,8 @@ import CharContainer from './context/basic/CharContainer';
 import ParentContainer from './context/normal/ParentContainer';
 import AnimalsContainer from './context/expert/AnimalsContainer';
 import FoodContainer from './ref/expert/FoodContainer';
+import CountContainer from './pages/count/CountContainer';
+import FontContainer from './pages/font/FontContainer';
 
 
 function App() {
@@ -27,7 +29,9 @@ function App() {
     // <>안녕 리액트😎</>
     // <CharContainer />
     // <ParentContainer />
-    <AnimalsContainer />
+    // <AnimalsContainer />
+    // <CountContainer />
+    <FontContainer />
 
   );
 }
