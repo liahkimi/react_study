@@ -29,7 +29,7 @@
       - life-cycle의 구조로는 state를 바꾸면 될 일이다.
    -> 1, 2, 3에 따른 변화가 있을 때 아래가 실행이 된다.
 
-   render : 컴포넌트 리랜더링  🤔그림에 생략된듯?!
+   render : 컴포넌트 리랜더링 
    - shouldComponentUpdate : 다음 라이프사이클 메서드를 이동할 지 멈출 지를 결정한다. 
       - 언제 re-rendering을 시킬지 결정하는 메서드
       - true면 getSnapshotBeforeUpdate으로 이동, false면 unMount
