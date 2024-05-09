@@ -13,12 +13,11 @@
    
    - constructor : 새로운 컴포넌트를 생성할 때 마다 자동으로 호출되는 특별한 메서드
    - getDeriveStateFromProps : prop를 state에 넣을 때 사용한다. 
-                                 컴포넌트가 마운트 될 때 와 업데이트 될 때 실행된다.
-                                 virtual DOM에서 사용하는 메서드.
-                                 (state를 비교하고 다른게 있다면 지운뒤 다시 그리는 작업)
+                              컴포넌트가 마운트 될 때 와 업데이트 될 때 실행된다.
+                              virtual DOM에서 사용하는 메서드.
    - render : 준비해놓은 UI를 랜더링할 때 사용된다.
    - componentDidMount : 페이지에 컴포넌트가 나타난 후 실행된다.
-      - ex.렌더링된 후에 뭔가를 띄우고 싶을 때, setTimeout 사용하는 대신 componentDidMount메서드를 골라 사용하면 된다.
+      - ex.렌더링된 직후에 뭔가를 띄우고 싶을 때, setTimeout 사용하는 대신 componentDidMount메서드를 골라 사용하면 된다.
 
 
 업데이트(update)
@@ -26,11 +25,11 @@
    - 2. state 값에 변화가 있을 때
    - 3. 부모 컴포넌트가 리랜더링될 때 (자식 컴포넌트도 자동으로 리랜더링 된다.)
    - forceUpdate()를 사용해서 강제로 리랜더링을 할 때(사용X, 상태관리가 잘못된 구조다.)
-      - life-cycle의 구조로는 state를 바꾸면 될 일이다.
+      -> life-cycle의 구조로는 state를 바꾸면 될 일이다.
    -> 1, 2, 3에 따른 변화가 있을 때 아래가 실행이 된다.
 
-   render : 컴포넌트 리랜더링 
-   - shouldComponentUpdate : 다음 라이프사이클 메서드를 이동할 지 멈출 지를 결정한다. 
+   - render : 컴포넌트 리랜더링 
+   - shouldComponentUpdate : 다음 라이프사이클 메서드로 이동할 지 멈출 지(unMount)를 결정한다. 
       - 언제 re-rendering을 시킬지 결정하는 메서드
       - true면 getSnapshotBeforeUpdate으로 이동, false면 unMount
    - getSnapshotBeforeUpdate : 컴포넌트 업데이트 직전에 실행 (직전값을 snapshot으로 남김)
@@ -40,10 +39,8 @@
 
 
 언마운트(unmount)
-   - 컴포넌트가 페이지에서 사라지는 것
+   - 컴포넌트가 페이지에서 사라지는 것 
    - componentwillUnmount : 컴포넌트가 페이지에서 사라지기 직전에 실행된다.(복구에 대한 예방 차원)
-
-
 
 실습 
 부모 컴포넌트 - LifeCycleContainer.js - 색깔을 props로 넘겨주면

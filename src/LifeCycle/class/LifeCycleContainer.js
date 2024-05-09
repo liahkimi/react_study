@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
-import LifeCycleComponent from './LifeCycleComponent';
+import LifeCycleComponent from './LifeCycleComponent'
 
-// 랜덤 컬러를 16진수로 표현해주는 함수
-const getRandomColor = () => { //16777215 : 16진수로 색상을 표현할수 있는것들의 갯수
-                                //toString(16) : 16진수로 변경
+// 랜덤컬러를 16진수로 표현해주는 함수
+const getRandomColor = () => {
     return "#" + Math.floor(Math.random() * 16777215).toString(16)
+    // 16진수의 컬러값 리턴하기 위해 #으로 시작
+    // Math.floor() : 소수점 벌기ㅣ
+    // Math.random() : 랜덤값(소수점자리) 생성
+    // 16777215 : 색상을 표현할 수 있는 값의 갯수로 곱하기
+    // toString(16) : 16진수로 변환
 }
-// 클래스형 컴포넌트
-// useState개념이 없다.
-// this값은 class(객체(추상적))를 찾아가게 되어있음
-// this는 class 중에서 구제화된 instance임. this = 인스턴스
-// class 내부의 메서드들 (state,)
+// 컨테이너
 class LifeCycleContainer extends Component {
 
+    // 부모의 초기 컬러값
     state = {
         color: "#000000"
     }
-
+     
     // 값이 언제 변화하는지 보기 위해서 State값 변경 함수를 작성
+    // 클래스형 컴포넌트는 useState 개념이 없어서 this를 사용한다. 
+    // 클래스를 사용할 때 '객체화'가 되어 this는 해당 객체화 된 객체를 찾아 간다.
+    // ex. this => LifeCycleContainer 
     onClickToChangeColor = () => {
-        this.setState({ //🤔useState개념이 없는데, setState는 쓰나요?
-            color: getRandomColor()
+        this.setState({
+            color : ""
         })
         console.log(this.state.color)
     }
@@ -28,10 +32,8 @@ class LifeCycleContainer extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.onClickToChangeColor}>색상 변경</button>
-                <LifeCycleComponent color={this.state.color}/>
-                {/* => color를 자식컴포넌트에게 props로 넘겨줘야해서 */}
-                {/* this.state.color = 클래스에 있는 state값의 color */}
+                <button onClick={this.onClickToChangeColor} >색상 변경</button>
+                <LifeCycleComponent color={this.state.color}/> 
             </div>
         );
     }

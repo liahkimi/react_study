@@ -11,11 +11,13 @@ import AnimalsContainer from './context/expert/AnimalsContainer';
 import FoodContainer from './ref/expert/FoodContainer';
 import CountContainer from './pages/count/CountContainer';
 import FontContainer from './pages/font/FontContainer';
-import { Route, Routes } from 'react-router-dom';
+import { Route, RouterProvider, Routes } from 'react-router-dom';
 import Main from './pages/main/Main';
 import Intro from './pages/intro/Intro';
 import Job from './pages/job/Job';
+import LifeCycleContainer from './LifeCycle/class/LifeCycleContainer';
 
+import router from './routes/router';
 
 function App() {
   return (
@@ -36,15 +38,20 @@ function App() {
     // <AnimalsContainer />
     // <CountContainer />
     // <FontContainer />
+    // <>
+    //   <Routes>
+    //     <Route path='/' element={<Main />} />
+    //     <Route path='/intro' element={<Intro />} />
+    //     <Route path='/job' element={<Job/>}>
+    //       <Route path=':title' element={<Job />} />
+    //     </Route>
+    //   </Routes>
+    // </>
+    // <LifeCycleContainer />
     <>
-      <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path='/intro' element={<Intro />} />
-        <Route path='/job' element={<Job/>}>
-          <Route path=':title' element={<Job />} />
-        </Route>
-      </Routes>
+      <RouterProvider  router={router}/>
     </>
+
 
   );
 }
